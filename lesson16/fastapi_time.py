@@ -9,6 +9,5 @@ app = FastAPI()
 @app.get('/time', response_class=JSONResponse)
 def read_root():
     fmt = '%d-%m-%Y %H:%M:%S'
-    tz = pytz.timezone('Europe/London')
-    current_time = datetime.now(tz).strftime(fmt)
+    current_time = datetime.utcnow().strftime(fmt)
     return current_time
